@@ -11,3 +11,20 @@
     // random colors when passing over square in the grid
     // Progressive darkening effect, squares get darker by 10% whith each pass over the same square, being the darkest it can be after 10 passes
         // CSS opacity would be used here
+
+
+
+
+// Creates a 16x16 grid of sqaure divs
+
+function creategrid(sideLength) {
+    const divContainer = document.querySelector(".container");
+    for (i = 0; i < sideLength * sideLength; i++) {
+        const div = document.createElement("div");
+        div.style.height = `calc(100% / ${sideLength})`;
+        div.style.width = `calc(100% / ${sideLength})`;
+        divContainer.append(div);
+    }
+}
+
+creategrid(100);
