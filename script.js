@@ -12,25 +12,28 @@
     // Progressive darkening effect, squares get darker by 10% whith each pass over the same square, being the darkest it can be after 10 passes
         // CSS opacity would be used here
 
-
-
-
 // Creates a 16x16 grid of sqaure divs
+
 
 function createGrid(sideLength) {
     const divContainer = document.querySelector(".container");
     for (i = 0; i < sideLength * sideLength; i++) {
         const div = document.createElement("div");
+        div.classList.add("gridSquare");
         div.style.height = `calc(100% / ${sideLength})`;
         div.style.width = `calc(100% / ${sideLength})`;
         divContainer.append(div);
     }
 }
 
-createGrid(16);
-
+// colors grid squares on mouseover event
 const fullGrid = document.querySelector(".container");
-
 fullGrid.addEventListener("mouseover", (event) => {
-    event.target.style["background-color"] = "black"
+    event.target.style["background-color"] = "black";
 })
+
+
+// sets default grid size when page is loaded
+window.onload = () => {
+    createGrid(16);
+}
