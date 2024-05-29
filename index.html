@@ -7,7 +7,21 @@
     </head>
     <body>
         <div class="container"></div>
-
+        <div class="side-buttons">
+            <div class="color-picker">
+                <label for="color-selector">Color:</label>
+                <input type="color" id="color-selector" value="#000000">
+            </div>
+            <button class="rainbow">Rainbow</button>
+            <button class="eraser">Eraser</button>
+            <button class="shader">Shader</button>
+        </div>
+        <div class="bottom-buttons">
+            <div class="slider-container">
+                <input type="range" min="1" max="100" value="16" class="slider" id="size-slider">
+            </div>
+            <button class="clear-grid">Clear Grid</button>
+        </div> 
         <script src="script.js"></script>
     </body>
 </html>
