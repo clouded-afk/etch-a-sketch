@@ -17,7 +17,7 @@
 
 // Creates a 16x16 grid of sqaure divs
 
-function creategrid(sideLength) {
+function createGrid(sideLength) {
     const divContainer = document.querySelector(".container");
     for (i = 0; i < sideLength * sideLength; i++) {
         const div = document.createElement("div");
@@ -27,4 +27,10 @@ function creategrid(sideLength) {
     }
 }
 
-creategrid(100);
+createGrid(16);
+
+const fullGrid = document.querySelector(".container");
+
+fullGrid.addEventListener("mouseover", (event) => {
+    event.target.style["background-color"] = "black"
+})
