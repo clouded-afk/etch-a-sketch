@@ -28,8 +28,16 @@ function createGrid(sideLength) {
 const colorSelector = document.getElementById('color-selector')
 const fullGrid = document.querySelector(".container");
 fullGrid.addEventListener("mouseover", (event) => {
-    event.target.style["background-color"] = colorSelector.value;
+    event.target.style.backgroundColor = colorSelector.value;
 })
+
+colorSelector.addEventListener("click", drawSelectedColor)
+
+function drawSelectedColor() {
+    fullGrid.addEventListener("mouseover", (event) => {
+        event.target.style.backgroundColor = colorSelector.value;
+    })
+}
 
 // Adds functionality to rainbow button
 const rainbowBtn = document.querySelector(".rainbow");
@@ -44,7 +52,7 @@ function randomColor() {
 
 function drawRainbow() {
     fullGrid.addEventListener("mouseover", (event) => {
-        event.target.style["background-color"] = randomColor();
+        event.target.style.backgroundColor = randomColor();
     })
 };
 
@@ -65,7 +73,7 @@ eraserBtn.addEventListener("click", eraseColor);
 
 function eraseColor() {
     fullGrid.addEventListener("mouseover", (event) => {
-        event.target.style["background-color"] = "white";
+        event.target.style.backgroundColor = "white";
     })
 }
 
