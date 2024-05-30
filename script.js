@@ -15,6 +15,7 @@
 // Creates a 16x16 grid of sqaure divs
 function createGrid(sideLength) {
     const divContainer = document.querySelector(".container");
+    divContainer.replaceChildren();
     for (i = 0; i < sideLength * sideLength; i++) {
         const div = document.createElement("div");
         div.classList.add("grid-square");
@@ -27,17 +28,6 @@ function createGrid(sideLength) {
 // colors grid squares on mouseover event
 const colorSelector = document.getElementById('color-selector')
 const fullGrid = document.querySelector(".container");
-fullGrid.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = colorSelector.value;
-})
-
-colorSelector.addEventListener("click", drawSelectedColor)
-
-function drawSelectedColor() {
-    fullGrid.addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = colorSelector.value;
-    })
-}
 
 // Adds functionality to rainbow button
 const rainbowBtn = document.querySelector(".rainbow");
@@ -54,6 +44,9 @@ function drawRainbow() {
     fullGrid.addEventListener("mouseover", (event) => {
         event.target.style.backgroundColor = randomColor();
     })
+    rainbowBtn.style.backgroundColor = "red"
+    eraserBtn.style.backgroundColor = ""
+    singleColorBtn.style.backgroundColor = ""
 };
 
 // Adds functionality to clear grid button
@@ -75,6 +68,40 @@ function eraseColor() {
     fullGrid.addEventListener("mouseover", (event) => {
         event.target.style.backgroundColor = "white";
     })
+    eraserBtn.style.backgroundColor = "red"
+    rainbowBtn.style.backgroundColor = ""
+    singleColorBtn.style.backgroundColor = ""
+}
+
+const singleColorBtn = document.querySelector(".single-color");
+singleColorBtn.addEventListener("click", singleColor)
+
+function singleColor() {
+    fullGrid.addEventListener("mouseover", (event) => {
+        event.target.style.backgroundColor = colorSelector.value;
+    })
+    singleColorBtn.style.backgroundColor = "red"
+    rainbowBtn.style.backgroundColor = ""
+    eraserBtn.style.backgroundColor = ""
+}
+
+// Adds functionality to change size button
+const sizeBtn = document.querySelector(".change-size")
+sizeBtn.addEventListener("click", resetGrid)
+
+function changeGridSize() {
+    let gridSize = Number(prompt("Please enter a number between 2 - 100."));
+    while (gridSize < 2 || gridSize > 100) {
+        gridSize = Number(prompt("Please try again. Number needs to be between 2 - 100"));
+    } if (gridSize >= 2 && gridSize <= 100) {
+        return gridSize
+    }
+    return gridSize
+}
+
+function resetGrid() {
+    let sideLength = changeGridSize();
+    createGrid(sideLength);
 }
 
 // sets default grid size when page is loaded
