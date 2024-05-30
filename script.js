@@ -12,6 +12,17 @@
     // Progressive darkening effect, squares get darker by 10% whith each pass over the same square, being the darkest it can be after 10 passes
         // CSS opacity would be used here
 
+
+// Varaible assignments
+const colorSelector = document.getElementById('color-selector')
+const fullGrid = document.querySelector(".container");       
+const rainbowBtn = document.querySelector(".rainbow");
+const clearBtn = document.querySelector(".clear-grid");
+const eraserBtn = document.querySelector(".eraser");
+const singleColorBtn = document.querySelector(".single-color");
+const shaderBtn = document.querySelector(".shader");
+const sizeBtn = document.querySelector(".change-size")
+
 // Creates a 16x16 grid of sqaure divs
 function createGrid(sideLength) {
     const divContainer = document.querySelector(".container");
@@ -25,14 +36,7 @@ function createGrid(sideLength) {
     }
 }
 
-// colors grid squares on mouseover event
-const colorSelector = document.getElementById('color-selector')
-const fullGrid = document.querySelector(".container");
-
 // Adds functionality to rainbow button
-const rainbowBtn = document.querySelector(".rainbow");
-rainbowBtn.addEventListener("click", drawRainbow);
-
 function randomColor() {
     let colorR = Math.floor(Math.random() * 256);
     let colorG = Math.floor(Math.random() * 256);
@@ -51,9 +55,6 @@ function drawRainbow() {
 };
 
 // Adds functionality to clear grid button
-const clearBtn = document.querySelector(".clear-grid");
-clearBtn.addEventListener("click", clearGrid);
-
 function clearGrid() {
     const squares = document.querySelectorAll(".grid-square");
     squares.forEach(square => {
@@ -63,12 +64,10 @@ function clearGrid() {
 }
 
 // Adds functionality to eraser button
-const eraserBtn = document.querySelector(".eraser");
-eraserBtn.addEventListener("click", eraseColor);
-
 function eraseColor() {
     fullGrid.addEventListener("mouseover", (event) => {
         event.target.style.backgroundColor = "white";
+
     })
     eraserBtn.style.backgroundColor = "red"
     rainbowBtn.style.backgroundColor = ""
@@ -77,9 +76,6 @@ function eraseColor() {
 }
 
 // Adds functionality to single color button
-const singleColorBtn = document.querySelector(".single-color");
-singleColorBtn.addEventListener("click", singleColor)
-
 function singleColor() {
     fullGrid.addEventListener("mouseover", (event) => {
         event.target.style.backgroundColor = colorSelector.value;
@@ -90,9 +86,7 @@ function singleColor() {
     shaderBtn.style.backgroundColor = ""
 }
 
-const shaderBtn = document.querySelector(".shader");
-shaderBtn.addEventListener("click", colorShading);
-
+// Adds functionality to shader button
 function colorShading() {
     const squares = document.querySelectorAll(".grid-square");
     squares.forEach((square) => {
@@ -111,12 +105,8 @@ function colorShading() {
     eraserBtn.style.backgroundColor = ""
     shaderBtn.style.backgroundColor = "red"
 }
-
     
 // Adds functionality to change size button
-const sizeBtn = document.querySelector(".change-size")
-sizeBtn.addEventListener("click", resetGrid)
-
 function changeGridSize() {
     let gridSize = Number(prompt("Please enter a number between 2 - 100."));
     while (gridSize < 2 || gridSize > 100) {
@@ -131,6 +121,15 @@ function resetGrid() {
     let sideLength = changeGridSize();
     createGrid(sideLength);
 }
+
+//Event Listeners
+rainbowBtn.addEventListener("click", drawRainbow);
+eraserBtn.addEventListener("click", eraseColor);
+singleColorBtn.addEventListener("click", singleColor)
+shaderBtn.addEventListener("click", colorShading);
+sizeBtn.addEventListener("click", resetGrid);
+clearBtn.addEventListener("click", clearGrid);
+
 
 // sets default grid size when page is loaded
 window.onload = () => {
