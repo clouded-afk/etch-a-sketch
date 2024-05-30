@@ -57,7 +57,8 @@ clearBtn.addEventListener("click", clearGrid);
 function clearGrid() {
     const squares = document.querySelectorAll(".grid-square");
     squares.forEach(square => {
-        square.style.backgroundColor = "white";
+        square.style.backgroundColor = "";
+        square.style.opacity = 1;
     });
 }
 
