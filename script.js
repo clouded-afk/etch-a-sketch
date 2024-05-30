@@ -47,6 +47,7 @@ function drawRainbow() {
     rainbowBtn.style.backgroundColor = "red"
     eraserBtn.style.backgroundColor = ""
     singleColorBtn.style.backgroundColor = ""
+    shaderBtn.style.backgroundColor = ""
 };
 
 // Adds functionality to clear grid button
@@ -71,8 +72,10 @@ function eraseColor() {
     eraserBtn.style.backgroundColor = "red"
     rainbowBtn.style.backgroundColor = ""
     singleColorBtn.style.backgroundColor = ""
+    shaderBtn.style.backgroundColor = ""
 }
 
+// Adds functionality to single color button
 const singleColorBtn = document.querySelector(".single-color");
 singleColorBtn.addEventListener("click", singleColor)
 
@@ -83,8 +86,32 @@ function singleColor() {
     singleColorBtn.style.backgroundColor = "red"
     rainbowBtn.style.backgroundColor = ""
     eraserBtn.style.backgroundColor = ""
+    shaderBtn.style.backgroundColor = ""
 }
 
+const shaderBtn = document.querySelector(".shader");
+shaderBtn.addEventListener("click", colorShading);
+
+function colorShading() {
+    const squares = document.querySelectorAll(".grid-square");
+    squares.forEach((square) => {
+        let opacity = 0.1;
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = colorSelector.value;
+            square.style.opacity = opacity;
+            opacity += 0.1;
+            if (opacity > 1) {
+                opacity = 1;
+            }
+        })
+    })
+    singleColorBtn.style.backgroundColor = ""
+    rainbowBtn.style.backgroundColor = ""
+    eraserBtn.style.backgroundColor = ""
+    shaderBtn.style.backgroundColor = "red"
+}
+
+    
 // Adds functionality to change size button
 const sizeBtn = document.querySelector(".change-size")
 sizeBtn.addEventListener("click", resetGrid)
