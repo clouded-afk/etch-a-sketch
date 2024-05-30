@@ -19,7 +19,7 @@ function createGrid(sideLength) {
     const divContainer = document.querySelector(".container");
     for (i = 0; i < sideLength * sideLength; i++) {
         const div = document.createElement("div");
-        div.classList.add("gridSquare");
+        div.classList.add("grid-square");
         div.style.height = `calc(100% / ${sideLength})`;
         div.style.width = `calc(100% / ${sideLength})`;
         divContainer.append(div);
@@ -32,6 +32,21 @@ fullGrid.addEventListener("mouseover", (event) => {
     event.target.style["background-color"] = "black";
 })
 
+
+
+
+
+
+// Adds functionality to clear grid button
+const clearBtn = document.querySelector(".clear-grid");
+clearBtn.addEventListener("click", clearGrid);
+
+function clearGrid() {
+    const squares = document.querySelectorAll(".grid-square");
+    squares.forEach(square => {
+        square.style.backgroundColor = "white";
+    });
+}
 
 // sets default grid size when page is loaded
 window.onload = () => {
