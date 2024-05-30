@@ -13,8 +13,6 @@
         // CSS opacity would be used here
 
 // Creates a 16x16 grid of sqaure divs
-
-
 function createGrid(sideLength) {
     const divContainer = document.querySelector(".container");
     for (i = 0; i < sideLength * sideLength; i++) {
@@ -32,10 +30,22 @@ fullGrid.addEventListener("mouseover", (event) => {
     event.target.style["background-color"] = "black";
 })
 
+// Adds functionality to rainbow button
+const rainbowBtn = document.querySelector(".rainbow");
+rainbowBtn.addEventListener("click", drawRainbow);
 
+function randomColor() {
+    let colorR = Math.floor(Math.random() * 256);
+    let colorG = Math.floor(Math.random() * 256);
+    let colorB = Math.floor(Math.random() * 256);
+    return `rgb(${colorR} ${colorG} ${colorB})`
+}
 
-
-
+function drawRainbow() {
+    fullGrid.addEventListener("mouseover", (event) => {
+        event.target.style["background-color"] = randomColor();
+    })
+};
 
 // Adds functionality to clear grid button
 const clearBtn = document.querySelector(".clear-grid");
@@ -46,6 +56,16 @@ function clearGrid() {
     squares.forEach(square => {
         square.style.backgroundColor = "white";
     });
+}
+
+// Adds functionality to eraser button
+const eraserBtn = document.querySelector(".eraser");
+eraserBtn.addEventListener("click", eraseColor);
+
+function eraseColor() {
+    fullGrid.addEventListener("mouseover", (event) => {
+        event.target.style["background-color"] = "white";
+    })
 }
 
 // sets default grid size when page is loaded
