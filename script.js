@@ -25,9 +25,10 @@ function createGrid(sideLength) {
 }
 
 // colors grid squares on mouseover event
+const colorSelector = document.getElementById('color-selector')
 const fullGrid = document.querySelector(".container");
 fullGrid.addEventListener("mouseover", (event) => {
-    event.target.style["background-color"] = "black";
+    event.target.style["background-color"] = colorSelector.value;
 })
 
 // Adds functionality to rainbow button
