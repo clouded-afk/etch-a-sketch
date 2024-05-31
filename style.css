@@ -1,18 +1,108 @@
 * {
-    background-color: lightgray;
+    background-color: bisque;
     box-sizing: border-box;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid green;
-    height: 960px;
-    width: 960px;
-    margin: 0 auto;
-    margin-top: 100px;
-}
- .container div {
-    border: 1px solid lightgrey;
+    border: 2px solid #014421;
+    height: 600px;
+    width: 600px;
+    background-color: white;
+}    
+
+.container div {
     background-color: white;
  }
+
+.middle-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+ }
+
+.top-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 250px;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+ }
+
+ .bottom-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+ }
+
+ .shader, .single-color, .eraser, .rainbow, .change-size, .clear-grid {
+    width: 150px;
+    height: 25px;
+    background-color: white;
+    border-radius: 5px;
+    border-color: #014421;
+    color: #014421 ;
+ }
+#color-selector{
+    background-color: white;
+}
+
+label {
+    color: #014421;
+}
+
+.grid-tools, .tools {
+    border: 3px solid #014421;
+    font-weight: bolder;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: #014421;
+    color: white;
+    border-radius: 10px;
+}
+
+.header {
+    font-size: 64px;
+    border: 5px solid #014421;
+    color:white;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: #014421;
+}
+.footer {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: black;
+}
+
+a:hover {
+    color: white;
+}
