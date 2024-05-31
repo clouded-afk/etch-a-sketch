@@ -22,6 +22,7 @@ const eraserBtn = document.querySelector(".eraser");
 const singleColorBtn = document.querySelector(".single-color");
 const shaderBtn = document.querySelector(".shader");
 const sizeBtn = document.querySelector(".change-size")
+const squares = document.querySelectorAll(".grid-square");
 
 // Creates a 16x16 grid of sqaure divs
 function createGrid(sideLength) {
@@ -45,13 +46,15 @@ function randomColor() {
 }
 
 function drawRainbow() {
-    fullGrid.addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = randomColor();
+    clearButtonStyle();
+    const squares = document.querySelectorAll(".grid-square");
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = randomColor();
+            square.style.opacity = 1;
+        })
     })
     rainbowBtn.style.backgroundColor = "red"
-    eraserBtn.style.backgroundColor = ""
-    singleColorBtn.style.backgroundColor = ""
-    shaderBtn.style.backgroundColor = ""
 };
 
 // Adds functionality to clear grid button
@@ -65,29 +68,33 @@ function clearGrid() {
 
 // Adds functionality to eraser button
 function eraseColor() {
-    fullGrid.addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = "white";
-
+    clearButtonStyle();
+    const squares = document.querySelectorAll(".grid-square");
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = "";
+            square.style.opacity = 1;
+        })
     })
     eraserBtn.style.backgroundColor = "red"
-    rainbowBtn.style.backgroundColor = ""
-    singleColorBtn.style.backgroundColor = ""
-    shaderBtn.style.backgroundColor = ""
 }
 
 // Adds functionality to single color button
 function singleColor() {
-    fullGrid.addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = colorSelector.value;
+    clearButtonStyle();
+    const squares = document.querySelectorAll(".grid-square");
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = colorSelector.value;
+            square.style.opacity = 1;
+        })
     })
     singleColorBtn.style.backgroundColor = "red"
-    rainbowBtn.style.backgroundColor = ""
-    eraserBtn.style.backgroundColor = ""
-    shaderBtn.style.backgroundColor = ""
 }
 
 // Adds functionality to shader button
 function colorShading() {
+    clearButtonStyle();
     const squares = document.querySelectorAll(".grid-square");
     squares.forEach((square) => {
         let opacity = 0.1;
@@ -100,9 +107,6 @@ function colorShading() {
             }
         })
     })
-    singleColorBtn.style.backgroundColor = ""
-    rainbowBtn.style.backgroundColor = ""
-    eraserBtn.style.backgroundColor = ""
     shaderBtn.style.backgroundColor = "red"
 }
     
@@ -123,10 +127,30 @@ function resetGrid() {
 }
 
 //Event Listeners
-rainbowBtn.addEventListener("click", drawRainbow);
-eraserBtn.addEventListener("click", eraseColor);
-singleColorBtn.addEventListener("click", singleColor)
-shaderBtn.addEventListener("click", colorShading);
+rainbowBtn.addEventListener("click", () => {
+    drawRainbow();
+    singleColorBtn.removeEventListener('click', singleColor);
+    eraserBtn.removeEventListener('click', eraseColor);
+    shaderBtn.removeEventListener('click', colorShading);
+});
+eraserBtn.addEventListener("click", () => {
+    eraseColor();
+    singleColorBtn.removeEventListener('click', singleColor);
+    rainbowBtn.removeEventListener('click', drawRainbow);
+    shaderBtn.removeEventListener('click', colorShading);
+});
+singleColorBtn.addEventListener("click", () => {
+    singleColor();
+    rainbowBtn.removeEventListener('click', drawRainbow);
+    eraserBtn.removeEventListener('click', eraseColor);
+    shaderBtn.removeEventListener('click', colorShading);
+})
+shaderBtn.addEventListener("click", () => {
+    colorShading();
+    singleColorBtn.removeEventListener('click', singleColor);
+    rainbowBtn.removeEventListener('click', drawRainbow);
+    eraserBtn.removeEventListener('click', eraseColor);
+});
 sizeBtn.addEventListener("click", resetGrid);
 clearBtn.addEventListener("click", clearGrid);
 
@@ -134,4 +158,11 @@ clearBtn.addEventListener("click", clearGrid);
 // sets default grid size when page is loaded
 window.onload = () => {
     createGrid(16);
+}
+
+function clearButtonStyle() {
+    singleColorBtn.style.backgroundColor = ""
+    rainbowBtn.style.backgroundColor = ""
+    eraserBtn.style.backgroundColor = ""
+    shaderBtn.style.backgroundColor = ""
 }
