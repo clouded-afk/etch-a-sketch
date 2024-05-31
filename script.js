@@ -109,9 +109,22 @@ function changeGridSize() {
     return gridSize
 }
 
+// Adds funtionality to change grid size button
 function resetGrid() {
     let sideLength = changeGridSize();
     createGrid(sideLength);
+}
+
+// Changes button style based on which is clicked
+function clearButtonStyle() {
+    singleColorBtn.style.backgroundColor = ""
+    rainbowBtn.style.backgroundColor = ""
+    eraserBtn.style.backgroundColor = ""
+    shaderBtn.style.backgroundColor = ""
+    shaderBtn.style.color = "#014421";
+    singleColorBtn.style.color = "#014421";
+    rainbowBtn.style.color = "#014421";
+    eraserBtn.style.color = "#014421";
 }
 
 //Event Listeners
@@ -148,13 +161,3 @@ window.onload = () => {
     createGrid(16);
 }
 
-function clearButtonStyle() {
-    singleColorBtn.style.backgroundColor = ""
-    rainbowBtn.style.backgroundColor = ""
-    eraserBtn.style.backgroundColor = ""
-    shaderBtn.style.backgroundColor = ""
-    shaderBtn.style.color = "#014421";
-    singleColorBtn.style.color = "#014421";
-    rainbowBtn.style.color = "#014421";
-    eraserBtn.style.color = "#014421";
-}
