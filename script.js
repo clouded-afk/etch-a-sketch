@@ -113,6 +113,7 @@ function changeGridSize() {
 function resetGrid() {
     let sideLength = changeGridSize();
     createGrid(sideLength);
+    clearButtonStyle();
 }
 
 // Changes button style based on which is clicked
