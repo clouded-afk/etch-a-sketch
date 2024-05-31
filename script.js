@@ -38,7 +38,8 @@ function drawRainbow() {
             square.style.opacity = 1;
         })
     })
-    rainbowBtn.style.backgroundColor = "red"
+    rainbowBtn.style.backgroundColor = "#014421"
+    rainbowBtn.style.color = "white";
 };
 
 // Adds functionality to clear grid button
@@ -60,7 +61,8 @@ function eraseColor() {
             square.style.opacity = 1;
         })
     })
-    eraserBtn.style.backgroundColor = "red"
+    eraserBtn.style.backgroundColor = "#014421"
+    eraserBtn.style.color = "white";
 }
 
 // Adds functionality to single color button
@@ -73,7 +75,8 @@ function singleColor() {
             square.style.opacity = 1;
         })
     })
-    singleColorBtn.style.backgroundColor = "red"
+    singleColorBtn.style.backgroundColor = "#014421"
+    singleColorBtn.style.color = "white";
 }
 
 // Adds functionality to shader button
@@ -91,7 +94,8 @@ function colorShading() {
             }
         })
     })
-    shaderBtn.style.backgroundColor = "red"
+    shaderBtn.style.backgroundColor = "#014421"
+    shaderBtn.style.color = "white";
 }
     
 // Adds functionality to change size button
@@ -149,4 +153,8 @@ function clearButtonStyle() {
     rainbowBtn.style.backgroundColor = ""
     eraserBtn.style.backgroundColor = ""
     shaderBtn.style.backgroundColor = ""
+    shaderBtn.style.color = "#014421";
+    singleColorBtn.style.color = "#014421";
+    rainbowBtn.style.color = "#014421";
+    eraserBtn.style.color = "#014421";
 }
