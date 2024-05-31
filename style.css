@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
 * {
     background-color: bisque;
     box-sizing: border-box;
-    font-family: "Shadows Into Light", sans-serif;
+    font-family: "Shadows Into Light Two", sans-serif;
 }
 
 .container {
