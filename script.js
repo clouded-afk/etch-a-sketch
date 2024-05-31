@@ -1,11 +1,11 @@
 // Varaible assignments
-const colorSelector = document.getElementById('color-selector')
+const colorSelector = document.getElementById('color-selector');
 const rainbowBtn = document.querySelector(".rainbow");
 const clearBtn = document.querySelector(".clear-grid");
 const eraserBtn = document.querySelector(".eraser");
 const singleColorBtn = document.querySelector(".single-color");
 const shaderBtn = document.querySelector(".shader");
-const sizeBtn = document.querySelector(".change-size")
+const sizeBtn = document.querySelector(".change-size");
 const squares = document.querySelectorAll(".grid-square");
 
 // Creates a 16x16 grid of sqaure divs
@@ -27,7 +27,7 @@ function randomColor() {
     let colorG = Math.floor(Math.random() * 256);
     let colorB = Math.floor(Math.random() * 256);
     return `rgb(${colorR} ${colorG} ${colorB})`
-}
+};
 
 function drawRainbow() {
     clearButtonStyle();
@@ -38,7 +38,7 @@ function drawRainbow() {
             square.style.opacity = 1;
         })
     })
-    rainbowBtn.style.backgroundColor = "#014421"
+    rainbowBtn.style.backgroundColor = "#014421";
     rainbowBtn.style.color = "white";
 };
 
@@ -49,7 +49,7 @@ function clearGrid() {
         square.style.backgroundColor = "";
         square.style.opacity = 1;
     });
-}
+};
 
 // Adds functionality to eraser button
 function eraseColor() {
@@ -61,9 +61,9 @@ function eraseColor() {
             square.style.opacity = 1;
         })
     })
-    eraserBtn.style.backgroundColor = "#014421"
+    eraserBtn.style.backgroundColor = "#014421";
     eraserBtn.style.color = "white";
-}
+};
 
 // Adds functionality to single color button
 function singleColor() {
@@ -75,9 +75,9 @@ function singleColor() {
             square.style.opacity = 1;
         })
     })
-    singleColorBtn.style.backgroundColor = "#014421"
+    singleColorBtn.style.backgroundColor = "#014421";
     singleColorBtn.style.color = "white";
-}
+};
 
 // Adds functionality to shader button
 function colorShading() {
@@ -94,9 +94,9 @@ function colorShading() {
             }
         })
     })
-    shaderBtn.style.backgroundColor = "#014421"
+    shaderBtn.style.backgroundColor = "#014421";
     shaderBtn.style.color = "white";
-}
+};
     
 // Adds functionality to change size button
 function changeGridSize() {
@@ -104,54 +104,54 @@ function changeGridSize() {
     while (gridSize < 2 || gridSize > 100) {
         gridSize = Number(prompt("Please try again. Number needs to be between 2 - 100"));
     } if (gridSize >= 2 && gridSize <= 100) {
-        return gridSize
+        return gridSize;
     }
-    return gridSize
-}
+    return gridSize;
+};
 
 // Adds funtionality to change grid size button
 function resetGrid() {
     let sideLength = changeGridSize();
     createGrid(sideLength);
     clearButtonStyle();
-}
+};
 
 // Changes button style based on which is clicked
 function clearButtonStyle() {
-    singleColorBtn.style.backgroundColor = ""
-    rainbowBtn.style.backgroundColor = ""
-    eraserBtn.style.backgroundColor = ""
-    shaderBtn.style.backgroundColor = ""
+    singleColorBtn.style.backgroundColor = "";
+    rainbowBtn.style.backgroundColor = "";
+    eraserBtn.style.backgroundColor = "";
+    shaderBtn.style.backgroundColor = "";
     shaderBtn.style.color = "#014421";
     singleColorBtn.style.color = "#014421";
     rainbowBtn.style.color = "#014421";
     eraserBtn.style.color = "#014421";
-}
+};
 
 //Event Listeners
 rainbowBtn.addEventListener("click", () => {
     drawRainbow();
-    singleColorBtn.removeEventListener('click', singleColor);
-    eraserBtn.removeEventListener('click', eraseColor);
-    shaderBtn.removeEventListener('click', colorShading);
+    singleColorBtn.removeEventListener("click", singleColor);
+    eraserBtn.removeEventListener("click", eraseColor);
+    shaderBtn.removeEventListener("click", colorShading);
 });
 eraserBtn.addEventListener("click", () => {
     eraseColor();
-    singleColorBtn.removeEventListener('click', singleColor);
-    rainbowBtn.removeEventListener('click', drawRainbow);
-    shaderBtn.removeEventListener('click', colorShading);
+    singleColorBtn.removeEventListener("click", singleColor);
+    rainbowBtn.removeEventListener("click", drawRainbow);
+    shaderBtn.removeEventListener("click", colorShading);
 });
 singleColorBtn.addEventListener("click", () => {
     singleColor();
-    rainbowBtn.removeEventListener('click', drawRainbow);
-    eraserBtn.removeEventListener('click', eraseColor);
-    shaderBtn.removeEventListener('click', colorShading);
+    rainbowBtn.removeEventListener("click", drawRainbow);
+    eraserBtn.removeEventListener("click", eraseColor);
+    shaderBtn.removeEventListener("click", colorShading);
 })
 shaderBtn.addEventListener("click", () => {
     colorShading();
-    singleColorBtn.removeEventListener('click', singleColor);
-    rainbowBtn.removeEventListener('click', drawRainbow);
-    eraserBtn.removeEventListener('click', eraseColor);
+    singleColorBtn.removeEventListener("click", singleColor);
+    rainbowBtn.removeEventListener("click", drawRainbow);
+    eraserBtn.removeEventListener("click", eraseColor);
 });
 sizeBtn.addEventListener("click", resetGrid);
 clearBtn.addEventListener("click", clearGrid);
@@ -160,5 +160,5 @@ clearBtn.addEventListener("click", clearGrid);
 // sets default grid size when page is loaded
 window.onload = () => {
     createGrid(16);
-}
+};
 
