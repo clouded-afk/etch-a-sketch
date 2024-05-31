@@ -6,21 +6,29 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="container"></div>
-        <div class="side-buttons">
-            <div class="color-picker">
-                <label for="color-selector">Color:</label>
-                <input type="color" id="color-selector" value="#000000">
-            </div>
-            <button class="single-color">Single Color</button>
-            <button class="rainbow">Rainbow</button>
-            <button class="eraser">Eraser</button>
-            <button class="shader">Shader</button>
+        <div class="header">Etch-A-Sketch</div>
+        <div class="middle-section">
+            <div class="sidebar">
+                <div class="tools">Tools</div>
+                <div class="top-buttons">
+                    <div class="color-picker">
+                        <label for="color-selector">Color:</label>
+                        <input type="color" id="color-selector" value="#000000">
+                    </div>
+                    <button class="single-color">Single Color</button>
+                    <button class="rainbow">Rainbow</button>
+                    <button class="eraser">Eraser</button>
+                    <button class="shader">Shader</button>
+                </div>
+                <div class="grid-tools">Grid Tools</div>
+                <div class="bottom-buttons">
+                    <button class="change-size">Change Grid Size</button>
+                    <button class="clear-grid">Clear Grid</button>
+                </div> 
+            </div> 
+            <div class="container"></div>
         </div>
-        <div class="bottom-buttons">
-            <Button class="change-size">Change Grid Size</Button>
-            <button class="clear-grid">Clear Grid</button>
-        </div> 
+        <div class="footer">The Odin Project | | <a href="https://github.com/clouded-afk/">Coded by: github.com/clouded-afk</a></div>
         <script src="script.js"></script>
     </body>
 </html>
